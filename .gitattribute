@@ -1,1 +1,6 @@
+Import/* linguist-vendored
+temp/* linguist-vendored
+Stylesheet/* linguist-vendored
+temp/* linguist-vendored
+"User Login/*" linguist-vendored
 *.rb linguist-language=Java
