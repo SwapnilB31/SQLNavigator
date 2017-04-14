@@ -1,0 +1,82 @@
+body {
+	margin : 10px 30px 10px 30px;
+}
+table {
+	margin-left: 20px;
+	margin-right: 20px;
+	caption-side: bottom;
+	border-collapse : ;
+	text-align : center;
+}
+.b {
+	background-color: #ffc90e !important;
+	-webkit-transition-duration : 0.2s;
+	transition-duration : 0.2s;
+}
+th {
+	padding : 10px;
+}
+.b:hover {
+	background-color : orange !important;
+}
+tr {
+	overflow-x : scroll;
+}
+tr:nth-child(odd) {
+	background-color : #ddd;
+	-webkit-transition-duration : 0.2s;
+	transition-duration : 0.2s;
+}
+tr:nth-child(even) {
+	background-color : #eee;
+	-webkit-transition-duration : 0.2s;
+	transition-duration : 0.2s;
+}
+tr:hover {
+	background-color : #999;
+	overflow-x : auto;
+} 
+td {
+	padding : 10px;
+	word-wrap : none;
+	text-align : left;
+	vertical-align : text-top;
+}
+td, pre {
+	font-size : 12px;
+	letter-spacing : normal;
+	font-family : "Courier";
+}
+caption {
+	font-style: italic;
+	padding-top: 8px;
+}
+.in {
+	width : 50%;
+	padding : 7px;
+	font-size : 1.3em;
+	font-style : "Sans-Serif";
+	color : #aaa; 
+	border : none;
+	text-align : center;
+	margin-top : 20px;
+	margin-bottom : 20px;
+	-webkit-transition-duration : 0.8s;
+	transition-duration : 0.8s;
+}
+.in:focus {
+	/*border : 1px solid #00f;*/
+	border-radius : 5px;
+	width : 80%;
+	outline : 1px solid #00f;
+}
+textarea {
+	word-wrap : break-word;
+	background-color : inherit;
+	outline : none;
+	border : none;
+	font-size : 12px;
+	letter-spacing : normal;
+	font-family : "Courier";
+	vertical-align : middle;
+}
