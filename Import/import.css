@@ -1,0 +1,78 @@
+		.b {
+          background : -webkit-linear-gradient(#fff,#ccc);
+        }
+        th,td {
+          padding : 10px;
+          font-family : "Britannic Bold",sans-serif;
+          color : #444;
+        }
+        tr:nth-child(odd) {
+          background-color : #dfdfdf;
+        }
+        tr:nth-child(even) {
+          background-color: #efefef;
+        }
+        table {
+          border-collapse: collapse;
+          margin: 12px;
+        }
+        body {
+          background-color: #f3f3f3;
+          color : #444;
+        }
+        input[type="text"],input[type="checkbox"],select {
+          color : inherit;
+          font-family: "Lucida Fax", Serif;
+        }
+		.button {
+		  background-color: rgba(9,102,222,0.85);
+		  box-shadow : 0px 5px rgba(9,102,222,1);
+		}
+		
+		.resetButton {
+			background-color : rgba(255,0,12,0.71);
+			box-shadow : 0px 5px rgba(255,0,12,0.89);
+		}
+		
+        .button, .resetButton {
+          border : none;
+          padding : 16px 32px;
+          border-radius : 5px;
+          width : 170px;
+          color : #eee;
+          -webkit-transition-duration: 0.2s;
+		  margin : 15px;
+        }
+		.resetButton:hover {
+			background-color : rgba(255,0,12,0.80);
+		}
+        .button:hover {
+          background-color: rgba(9,102,222,0.91);
+        }
+		.resetButton:active {
+			box-shadow : 0px 3px rgba(255,0,12,0.89);
+		}
+		.button:active {
+			box-shadow : 0px 3px rgba(9,102,222,1);
+		}
+        .button:active,.resetButton:active {
+          -webkit-transform : translateY(2px);
+        }
+		.newBody {
+			margin-top : 15%;
+			margin-right : 15%;
+			margin-left : 15%;
+			padding : 20px;
+			border : 5px solid #4787ed;
+			background-color : #f3f3f3;
+			border-radius : 5px;
+		}
+		#myProgress {
+			width: 100%;
+			background-color: lightgrey;
+		}
+		#myBar {
+			width: 0%;
+			height: 30px;
+			background-color: #4787ed;
+		}

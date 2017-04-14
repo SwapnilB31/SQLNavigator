@@ -1,0 +1,650 @@
+<html>
+	<head>
+ 		<title>Import country</title>
+		<link rel = "Stylesheet" href="import.css">
+		<link rel = "Stylesheet" href="dialog.css">
+		<script src = "Import.js"></script>
+		<!--<script type='text/javascript' src='http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js'></script>-->	</head>
+	<body>
+		 <div align = "center" data-tab = 'country' data-db = 'college'>
+			<h3>Confirm the attribute specification for the Table : country, of Database : college</h3>
+			<table>
+				<tr class = "b">
+					<th>Field</th>
+					<th>Type</th>
+					<th>Length</th>
+					<th>Null</th>
+					<th>Key</th>
+				</tr>
+				<tr>
+					<td><input type = "text" value = "Code" data-def = "Code"/></td>
+					<td>
+						<select>
+							<option value = "varchar">VARCHAR</option>
+							<optgroup label="Numeric">
+								<option value = "tinyint">TINYINT</option>
+								<option value = "smallint">SMALLINT</option>
+								<option value = "mediumint">MEDIUMINT</option>
+								<option value = "int">INT</option>
+								<option value = "bigint">BIGINT</option>
+								<option value = "numeric">NUMERIC</option>
+								<option value = "double">DOUBLE</option>
+								<option value = "bit">BIT</option>
+								<option value = "boolean">BOOLEAN</option>
+							</optgroup>
+							<optgroup label="Date and time">
+								<option value = "date">DATE</option>
+								<option value = "datetime">DATETIME</option>
+								<option value = "timestamp">TIMESTAMP</option>
+								<option value = "time">TIME</option>
+								<option value = "year">YEAR</option>
+							</optgroup>
+							<optgroup label="String">
+								<option value = "char">CHAR</option>
+								<option value = "varchar">VARCHAR</option>
+								<option value = "text">TEXT</option>
+								<option value = "blob">BLOB</option>
+							</optgroup>
+						</select>
+					</td>
+					<td><input type = "text" value = "3" data-def = "3"></td>
+					<td><input type = "checkbox" checked="checked"></td>
+					<td>
+						<select onchange = 'NotNull(this)'>
+							<option value = 'unique'>UNIQUE</option>
+							<option value = 'primary key'>PRIMARY KEY</option>
+							<option value = 'none'>NONE</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><input type = "text" value = "Name" data-def = "Name"/></td>
+					<td>
+						<select>
+							<option value = "varchar">VARCHAR</option>
+							<optgroup label="Numeric">
+								<option value = "tinyint">TINYINT</option>
+								<option value = "smallint">SMALLINT</option>
+								<option value = "mediumint">MEDIUMINT</option>
+								<option value = "int">INT</option>
+								<option value = "bigint">BIGINT</option>
+								<option value = "numeric">NUMERIC</option>
+								<option value = "double">DOUBLE</option>
+								<option value = "bit">BIT</option>
+								<option value = "boolean">BOOLEAN</option>
+							</optgroup>
+							<optgroup label="Date and time">
+								<option value = "date">DATE</option>
+								<option value = "datetime">DATETIME</option>
+								<option value = "timestamp">TIMESTAMP</option>
+								<option value = "time">TIME</option>
+								<option value = "year">YEAR</option>
+							</optgroup>
+							<optgroup label="String">
+								<option value = "char">CHAR</option>
+								<option value = "varchar">VARCHAR</option>
+								<option value = "text">TEXT</option>
+								<option value = "blob">BLOB</option>
+							</optgroup>
+						</select>
+					</td>
+					<td><input type = "text" value = "44" data-def = "44"></td>
+					<td><input type = "checkbox" checked="checked"></td>
+					<td>
+						<select onchange = 'NotNull(this)'>
+							<option value = 'unique'>UNIQUE</option>
+							<option value = 'primary key'>PRIMARY KEY</option>
+							<option value = 'none'>NONE</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><input type = "text" value = "Continent" data-def = "Continent"/></td>
+					<td>
+						<select>
+							<option value = "varchar">VARCHAR</option>
+							<optgroup label="Numeric">
+								<option value = "tinyint">TINYINT</option>
+								<option value = "smallint">SMALLINT</option>
+								<option value = "mediumint">MEDIUMINT</option>
+								<option value = "int">INT</option>
+								<option value = "bigint">BIGINT</option>
+								<option value = "numeric">NUMERIC</option>
+								<option value = "double">DOUBLE</option>
+								<option value = "bit">BIT</option>
+								<option value = "boolean">BOOLEAN</option>
+							</optgroup>
+							<optgroup label="Date and time">
+								<option value = "date">DATE</option>
+								<option value = "datetime">DATETIME</option>
+								<option value = "timestamp">TIMESTAMP</option>
+								<option value = "time">TIME</option>
+								<option value = "year">YEAR</option>
+							</optgroup>
+							<optgroup label="String">
+								<option value = "char">CHAR</option>
+								<option value = "varchar">VARCHAR</option>
+								<option value = "text">TEXT</option>
+								<option value = "blob">BLOB</option>
+							</optgroup>
+						</select>
+					</td>
+					<td><input type = "text" value = "13" data-def = "13"></td>
+					<td><input type = "checkbox" checked="checked"></td>
+					<td>
+						<select onchange = 'NotNull(this)'>
+							<option value = 'none'>NONE</option>
+							<option value = 'unique'>UNIQUE</option>
+							<option value = 'primary key'>PRIMARY KEY</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><input type = "text" value = "Region" data-def = "Region"/></td>
+					<td>
+						<select>
+							<option value = "varchar">VARCHAR</option>
+							<optgroup label="Numeric">
+								<option value = "tinyint">TINYINT</option>
+								<option value = "smallint">SMALLINT</option>
+								<option value = "mediumint">MEDIUMINT</option>
+								<option value = "int">INT</option>
+								<option value = "bigint">BIGINT</option>
+								<option value = "numeric">NUMERIC</option>
+								<option value = "double">DOUBLE</option>
+								<option value = "bit">BIT</option>
+								<option value = "boolean">BOOLEAN</option>
+							</optgroup>
+							<optgroup label="Date and time">
+								<option value = "date">DATE</option>
+								<option value = "datetime">DATETIME</option>
+								<option value = "timestamp">TIMESTAMP</option>
+								<option value = "time">TIME</option>
+								<option value = "year">YEAR</option>
+							</optgroup>
+							<optgroup label="String">
+								<option value = "char">CHAR</option>
+								<option value = "varchar">VARCHAR</option>
+								<option value = "text">TEXT</option>
+								<option value = "blob">BLOB</option>
+							</optgroup>
+						</select>
+					</td>
+					<td><input type = "text" value = "25" data-def = "25"></td>
+					<td><input type = "checkbox" checked="checked"></td>
+					<td>
+						<select onchange = 'NotNull(this)'>
+							<option value = 'none'>NONE</option>
+							<option value = 'unique'>UNIQUE</option>
+							<option value = 'primary key'>PRIMARY KEY</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><input type = "text" value = "SurfaceArea" data-def = "SurfaceArea"/></td>
+					<td>
+						<select>
+							<option value = "numeric">NUMERIC</option>
+							<optgroup label="Numeric">
+								<option value = "tinyint">TINYINT</option>
+								<option value = "smallint">SMALLINT</option>
+								<option value = "mediumint">MEDIUMINT</option>
+								<option value = "int">INT</option>
+								<option value = "bigint">BIGINT</option>
+								<option value = "numeric">NUMERIC</option>
+								<option value = "double">DOUBLE</option>
+								<option value = "bit">BIT</option>
+								<option value = "boolean">BOOLEAN</option>
+							</optgroup>
+							<optgroup label="Date and time">
+								<option value = "date">DATE</option>
+								<option value = "datetime">DATETIME</option>
+								<option value = "timestamp">TIMESTAMP</option>
+								<option value = "time">TIME</option>
+								<option value = "year">YEAR</option>
+							</optgroup>
+							<optgroup label="String">
+								<option value = "char">CHAR</option>
+								<option value = "varchar">VARCHAR</option>
+								<option value = "text">TEXT</option>
+								<option value = "blob">BLOB</option>
+							</optgroup>
+						</select>
+					</td>
+					<td><input type = "text" value = "9,1" data-def = "9,1"></td>
+					<td><input type = "checkbox" checked="checked"></td>
+					<td>
+						<select onchange = 'NotNull(this)'>
+							<option value = 'none'>NONE</option>
+							<option value = 'unique'>UNIQUE</option>
+							<option value = 'primary key'>PRIMARY KEY</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><input type = "text" value = "IndepYear" data-def = "IndepYear"/></td>
+					<td>
+						<select>
+							<option value = "smallint">SMALLINT</option>
+							<optgroup label="Numeric">
+								<option value = "tinyint">TINYINT</option>
+								<option value = "smallint">SMALLINT</option>
+								<option value = "mediumint">MEDIUMINT</option>
+								<option value = "int">INT</option>
+								<option value = "bigint">BIGINT</option>
+								<option value = "numeric">NUMERIC</option>
+								<option value = "double">DOUBLE</option>
+								<option value = "bit">BIT</option>
+								<option value = "boolean">BOOLEAN</option>
+							</optgroup>
+							<optgroup label="Date and time">
+								<option value = "date">DATE</option>
+								<option value = "datetime">DATETIME</option>
+								<option value = "timestamp">TIMESTAMP</option>
+								<option value = "time">TIME</option>
+								<option value = "year">YEAR</option>
+							</optgroup>
+							<optgroup label="String">
+								<option value = "char">CHAR</option>
+								<option value = "varchar">VARCHAR</option>
+								<option value = "text">TEXT</option>
+								<option value = "blob">BLOB</option>
+							</optgroup>
+						</select>
+					</td>
+					<td><input type = "text" value = "5" data-def = "5"></td>
+					<td><input type = "checkbox" checked="checked"></td>
+					<td>
+						<select onchange = 'NotNull(this)'>
+							<option value = 'none'>NONE</option>
+							<option value = 'unique'>UNIQUE</option>
+							<option value = 'primary key'>PRIMARY KEY</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><input type = "text" value = "Population" data-def = "Population"/></td>
+					<td>
+						<select>
+							<option value = "int">INT</option>
+							<optgroup label="Numeric">
+								<option value = "tinyint">TINYINT</option>
+								<option value = "smallint">SMALLINT</option>
+								<option value = "mediumint">MEDIUMINT</option>
+								<option value = "int">INT</option>
+								<option value = "bigint">BIGINT</option>
+								<option value = "numeric">NUMERIC</option>
+								<option value = "double">DOUBLE</option>
+								<option value = "bit">BIT</option>
+								<option value = "boolean">BOOLEAN</option>
+							</optgroup>
+							<optgroup label="Date and time">
+								<option value = "date">DATE</option>
+								<option value = "datetime">DATETIME</option>
+								<option value = "timestamp">TIMESTAMP</option>
+								<option value = "time">TIME</option>
+								<option value = "year">YEAR</option>
+							</optgroup>
+							<optgroup label="String">
+								<option value = "char">CHAR</option>
+								<option value = "varchar">VARCHAR</option>
+								<option value = "text">TEXT</option>
+								<option value = "blob">BLOB</option>
+							</optgroup>
+						</select>
+					</td>
+					<td><input type = "text" value = "10" data-def = "10"></td>
+					<td><input type = "checkbox" checked="checked"></td>
+					<td>
+						<select onchange = 'NotNull(this)'>
+							<option value = 'none'>NONE</option>
+							<option value = 'unique'>UNIQUE</option>
+							<option value = 'primary key'>PRIMARY KEY</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><input type = "text" value = "LifeExpectancy" data-def = "LifeExpectancy"/></td>
+					<td>
+						<select>
+							<option value = "numeric">NUMERIC</option>
+							<optgroup label="Numeric">
+								<option value = "tinyint">TINYINT</option>
+								<option value = "smallint">SMALLINT</option>
+								<option value = "mediumint">MEDIUMINT</option>
+								<option value = "int">INT</option>
+								<option value = "bigint">BIGINT</option>
+								<option value = "numeric">NUMERIC</option>
+								<option value = "double">DOUBLE</option>
+								<option value = "bit">BIT</option>
+								<option value = "boolean">BOOLEAN</option>
+							</optgroup>
+							<optgroup label="Date and time">
+								<option value = "date">DATE</option>
+								<option value = "datetime">DATETIME</option>
+								<option value = "timestamp">TIMESTAMP</option>
+								<option value = "time">TIME</option>
+								<option value = "year">YEAR</option>
+							</optgroup>
+							<optgroup label="String">
+								<option value = "char">CHAR</option>
+								<option value = "varchar">VARCHAR</option>
+								<option value = "text">TEXT</option>
+								<option value = "blob">BLOB</option>
+							</optgroup>
+						</select>
+					</td>
+					<td><input type = "text" value = "3,1" data-def = "3,1"></td>
+					<td><input type = "checkbox" checked="checked"></td>
+					<td>
+						<select onchange = 'NotNull(this)'>
+							<option value = 'none'>NONE</option>
+							<option value = 'unique'>UNIQUE</option>
+							<option value = 'primary key'>PRIMARY KEY</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><input type = "text" value = "GNP" data-def = "GNP"/></td>
+					<td>
+						<select>
+							<option value = "numeric">NUMERIC</option>
+							<optgroup label="Numeric">
+								<option value = "tinyint">TINYINT</option>
+								<option value = "smallint">SMALLINT</option>
+								<option value = "mediumint">MEDIUMINT</option>
+								<option value = "int">INT</option>
+								<option value = "bigint">BIGINT</option>
+								<option value = "numeric">NUMERIC</option>
+								<option value = "double">DOUBLE</option>
+								<option value = "bit">BIT</option>
+								<option value = "boolean">BOOLEAN</option>
+							</optgroup>
+							<optgroup label="Date and time">
+								<option value = "date">DATE</option>
+								<option value = "datetime">DATETIME</option>
+								<option value = "timestamp">TIMESTAMP</option>
+								<option value = "time">TIME</option>
+								<option value = "year">YEAR</option>
+							</optgroup>
+							<optgroup label="String">
+								<option value = "char">CHAR</option>
+								<option value = "varchar">VARCHAR</option>
+								<option value = "text">TEXT</option>
+								<option value = "blob">BLOB</option>
+							</optgroup>
+						</select>
+					</td>
+					<td><input type = "text" value = "8,1" data-def = "8,1"></td>
+					<td><input type = "checkbox" checked="checked"></td>
+					<td>
+						<select onchange = 'NotNull(this)'>
+							<option value = 'none'>NONE</option>
+							<option value = 'unique'>UNIQUE</option>
+							<option value = 'primary key'>PRIMARY KEY</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><input type = "text" value = "GNPOld" data-def = "GNPOld"/></td>
+					<td>
+						<select>
+							<option value = "mediumint">MEDIUMINT</option>
+							<optgroup label="Numeric">
+								<option value = "tinyint">TINYINT</option>
+								<option value = "smallint">SMALLINT</option>
+								<option value = "mediumint">MEDIUMINT</option>
+								<option value = "int">INT</option>
+								<option value = "bigint">BIGINT</option>
+								<option value = "numeric">NUMERIC</option>
+								<option value = "double">DOUBLE</option>
+								<option value = "bit">BIT</option>
+								<option value = "boolean">BOOLEAN</option>
+							</optgroup>
+							<optgroup label="Date and time">
+								<option value = "date">DATE</option>
+								<option value = "datetime">DATETIME</option>
+								<option value = "timestamp">TIMESTAMP</option>
+								<option value = "time">TIME</option>
+								<option value = "year">YEAR</option>
+							</optgroup>
+							<optgroup label="String">
+								<option value = "char">CHAR</option>
+								<option value = "varchar">VARCHAR</option>
+								<option value = "text">TEXT</option>
+								<option value = "blob">BLOB</option>
+							</optgroup>
+						</select>
+					</td>
+					<td><input type = "text" value = "7" data-def = "7"></td>
+					<td><input type = "checkbox" checked="checked"></td>
+					<td>
+						<select onchange = 'NotNull(this)'>
+							<option value = 'none'>NONE</option>
+							<option value = 'unique'>UNIQUE</option>
+							<option value = 'primary key'>PRIMARY KEY</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><input type = "text" value = "LocalName" data-def = "LocalName"/></td>
+					<td>
+						<select>
+							<option value = "varchar">VARCHAR</option>
+							<optgroup label="Numeric">
+								<option value = "tinyint">TINYINT</option>
+								<option value = "smallint">SMALLINT</option>
+								<option value = "mediumint">MEDIUMINT</option>
+								<option value = "int">INT</option>
+								<option value = "bigint">BIGINT</option>
+								<option value = "numeric">NUMERIC</option>
+								<option value = "double">DOUBLE</option>
+								<option value = "bit">BIT</option>
+								<option value = "boolean">BOOLEAN</option>
+							</optgroup>
+							<optgroup label="Date and time">
+								<option value = "date">DATE</option>
+								<option value = "datetime">DATETIME</option>
+								<option value = "timestamp">TIMESTAMP</option>
+								<option value = "time">TIME</option>
+								<option value = "year">YEAR</option>
+							</optgroup>
+							<optgroup label="String">
+								<option value = "char">CHAR</option>
+								<option value = "varchar">VARCHAR</option>
+								<option value = "text">TEXT</option>
+								<option value = "blob">BLOB</option>
+							</optgroup>
+						</select>
+					</td>
+					<td><input type = "text" value = "44" data-def = "44"></td>
+					<td><input type = "checkbox" checked="checked"></td>
+					<td>
+						<select onchange = 'NotNull(this)'>
+							<option value = 'unique'>UNIQUE</option>
+							<option value = 'primary key'>PRIMARY KEY</option>
+							<option value = 'none'>NONE</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><input type = "text" value = "GovernmentForm" data-def = "GovernmentForm"/></td>
+					<td>
+						<select>
+							<option value = "varchar">VARCHAR</option>
+							<optgroup label="Numeric">
+								<option value = "tinyint">TINYINT</option>
+								<option value = "smallint">SMALLINT</option>
+								<option value = "mediumint">MEDIUMINT</option>
+								<option value = "int">INT</option>
+								<option value = "bigint">BIGINT</option>
+								<option value = "numeric">NUMERIC</option>
+								<option value = "double">DOUBLE</option>
+								<option value = "bit">BIT</option>
+								<option value = "boolean">BOOLEAN</option>
+							</optgroup>
+							<optgroup label="Date and time">
+								<option value = "date">DATE</option>
+								<option value = "datetime">DATETIME</option>
+								<option value = "timestamp">TIMESTAMP</option>
+								<option value = "time">TIME</option>
+								<option value = "year">YEAR</option>
+							</optgroup>
+							<optgroup label="String">
+								<option value = "char">CHAR</option>
+								<option value = "varchar">VARCHAR</option>
+								<option value = "text">TEXT</option>
+								<option value = "blob">BLOB</option>
+							</optgroup>
+						</select>
+					</td>
+					<td><input type = "text" value = "44" data-def = "44"></td>
+					<td><input type = "checkbox" checked="checked"></td>
+					<td>
+						<select onchange = 'NotNull(this)'>
+							<option value = 'none'>NONE</option>
+							<option value = 'unique'>UNIQUE</option>
+							<option value = 'primary key'>PRIMARY KEY</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><input type = "text" value = "HeadOfState" data-def = "HeadOfState"/></td>
+					<td>
+						<select>
+							<option value = "varchar">VARCHAR</option>
+							<optgroup label="Numeric">
+								<option value = "tinyint">TINYINT</option>
+								<option value = "smallint">SMALLINT</option>
+								<option value = "mediumint">MEDIUMINT</option>
+								<option value = "int">INT</option>
+								<option value = "bigint">BIGINT</option>
+								<option value = "numeric">NUMERIC</option>
+								<option value = "double">DOUBLE</option>
+								<option value = "bit">BIT</option>
+								<option value = "boolean">BOOLEAN</option>
+							</optgroup>
+							<optgroup label="Date and time">
+								<option value = "date">DATE</option>
+								<option value = "datetime">DATETIME</option>
+								<option value = "timestamp">TIMESTAMP</option>
+								<option value = "time">TIME</option>
+								<option value = "year">YEAR</option>
+							</optgroup>
+							<optgroup label="String">
+								<option value = "char">CHAR</option>
+								<option value = "varchar">VARCHAR</option>
+								<option value = "text">TEXT</option>
+								<option value = "blob">BLOB</option>
+							</optgroup>
+						</select>
+					</td>
+					<td><input type = "text" value = "36" data-def = "36"></td>
+					<td><input type = "checkbox" checked="checked"></td>
+					<td>
+						<select onchange = 'NotNull(this)'>
+							<option value = 'none'>NONE</option>
+							<option value = 'unique'>UNIQUE</option>
+							<option value = 'primary key'>PRIMARY KEY</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><input type = "text" value = "Capital" data-def = "Capital"/></td>
+					<td>
+						<select>
+							<option value = "smallint">SMALLINT</option>
+							<optgroup label="Numeric">
+								<option value = "tinyint">TINYINT</option>
+								<option value = "smallint">SMALLINT</option>
+								<option value = "mediumint">MEDIUMINT</option>
+								<option value = "int">INT</option>
+								<option value = "bigint">BIGINT</option>
+								<option value = "numeric">NUMERIC</option>
+								<option value = "double">DOUBLE</option>
+								<option value = "bit">BIT</option>
+								<option value = "boolean">BOOLEAN</option>
+							</optgroup>
+							<optgroup label="Date and time">
+								<option value = "date">DATE</option>
+								<option value = "datetime">DATETIME</option>
+								<option value = "timestamp">TIMESTAMP</option>
+								<option value = "time">TIME</option>
+								<option value = "year">YEAR</option>
+							</optgroup>
+							<optgroup label="String">
+								<option value = "char">CHAR</option>
+								<option value = "varchar">VARCHAR</option>
+								<option value = "text">TEXT</option>
+								<option value = "blob">BLOB</option>
+							</optgroup>
+						</select>
+					</td>
+					<td><input type = "text" value = "4" data-def = "4"></td>
+					<td><input type = "checkbox" checked="checked"></td>
+					<td>
+						<select onchange = 'NotNull(this)'>
+							<option value = 'none'>NONE</option>
+							<option value = 'unique'>UNIQUE</option>
+							<option value = 'primary key'>PRIMARY KEY</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><input type = "text" value = "Code2" data-def = "Code2"/></td>
+					<td>
+						<select>
+							<option value = "varchar">VARCHAR</option>
+							<optgroup label="Numeric">
+								<option value = "tinyint">TINYINT</option>
+								<option value = "smallint">SMALLINT</option>
+								<option value = "mediumint">MEDIUMINT</option>
+								<option value = "int">INT</option>
+								<option value = "bigint">BIGINT</option>
+								<option value = "numeric">NUMERIC</option>
+								<option value = "double">DOUBLE</option>
+								<option value = "bit">BIT</option>
+								<option value = "boolean">BOOLEAN</option>
+							</optgroup>
+							<optgroup label="Date and time">
+								<option value = "date">DATE</option>
+								<option value = "datetime">DATETIME</option>
+								<option value = "timestamp">TIMESTAMP</option>
+								<option value = "time">TIME</option>
+								<option value = "year">YEAR</option>
+							</optgroup>
+							<optgroup label="String">
+								<option value = "char">CHAR</option>
+								<option value = "varchar">VARCHAR</option>
+								<option value = "text">TEXT</option>
+								<option value = "blob">BLOB</option>
+							</optgroup>
+						</select>
+					</td>
+					<td><input type = "text" value = "2" data-def = "2"></td>
+					<td><input type = "checkbox" checked="checked"></td>
+					<td>
+						<select onchange = 'NotNull(this)'>
+							<option value = 'unique'>UNIQUE</option>
+							<option value = 'primary key'>PRIMARY KEY</option>
+							<option value = 'none'>NONE</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+			<button class = "button" onclick = "go()">Proceed</button>
+			<button class = "resetButton" onclick = "reset()">Reset</button>
+		</div>
+		<div align = "center" id = "dialog" style = 'display : none;'>
+
+			<div class = "modal-content">
+
+				<div id = "message" style = "text-align : left !important">A null value cannot be accepted for this column</div>
+
+				<button class="dia-button" onclick = "this.parentElement.parentElement.style.display = 'none';">OK</button>
+
+			</div>
+
+		</div>
+	</body>
+</html>
