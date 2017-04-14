@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Swapnil : Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel = "Stylesheet" href= "fonts.css">
+        <link rel = "Stylesheet" href = "home.css">
+        <link rel = "Stylesheet" href = "font-awesome-4.7.0/css/font-awesome.min.css">
+        <script src = "Resource\home.js"></script>
+    </head>
+    <body>
+        <div class = "nav">
+            <div align =" left" style = "display : inline-block; width : 47%" >
+                <table style = "display : inline" class = "logo">
+                    <tr>
+                        <td style = "padding-top: 6px">&nbsp&nbsp<img src= "../Icons/Icon-neg.png" height="39" width="50"></td>
+                        <td>&nbsp&nbsp<h1 style="display : inline"><b>SQLNavigator</b></h1></td>
+                    </tr>
+                </table>
+            </div>
+            <div class = "logout" onclick = "document.getElementById('logout').style.display = 'block';" style = "display : inline-block; float : right; margin-right: 30px; padding-top: 5px; padding-bottom: 15px; padding-right: 10px; padding-left : 10px;" align = "right">
+                    <h1 style = "display : inline;">Logout</h1>
+            </div>
+        </div>
+        <div class = "page-body fade-in fade" align = "center">
+              <br>
+              <fieldset class = "driver-from" id = "mysql" align = "center">
+              <legend><img class = "img-icon" src = "../Icons/mysql-logo.png" title = "MySQL Server"></legend>
+              <input type = "text" placeholder = "Username" title = "Username"  id = "username-mysql">
+              <input type = "password" placeholder = "Password" title = "Password" id = "password-mysql">
+              <label><input type= "checkbox" title = "mysql" id = "enabled-mysql" onclick = "enable(this)">Enabled</label>
+              <label><input type = "checkbox"  title = "mysql" onclick = "show(this)">Show Password</label>
+              <div class = "collapse" style = "height : 0px; overflow : hidden;">
+                <input type = "text" id = "mysql-driver" placeholder = "Driver" title = "Driver" readonly>
+                <input type = "text" id = "mysql-url" placeholder = "Address/Domain" title = "Address/Domain">
+                <input type = "text" id  = "mysql-port" placeholder = "Port Number" title = "Port Number">
+                <input type = "text" id = "mysql-file" placeholder = "Driver Data File" title = "Driver Data File">
+              </div>
+              <button class = "button" onclick = "mine(this)" title = "mysql" id = "mysql-button"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i></button>
+            </fieldset>
+            <br>
+            <fieldset class = "driver-from" id = "mssql" align = "center">
+            <legend><img class = "img-icon" src = "../Icons/ms-sql-server-logo.png" title = "Microsoft SQL Server"></legend>
+            <input type = "text" placeholder = "Username" title = "Username" id = "username-mssql">
+            <input type = "password" placeholder = "Password" title = "Password" id = "password-mssql">
+            <label><input type= "checkbox" title = "mssql" id = "enabled-mssql" onclick = "enable(this)">Enabled</label>
+            <label><input type= "checkbox" title = "mssql" id = "security-mssql" onclick = "authentication(this)">Windows Authentication</label>
+            <label><input type = "checkbox"  title = "mssql" onclick = "show(this)">Show Password</label>
+            <div class = "collapse" style = "height : 0px; overflow : hidden;">
+              <input type = "text" id = "mssql-driver" placeholder = "Driver" title = "Driver" readonly>
+              <input type = "text" id = "mssql-url" placeholder = "Address/Domain" title = "Address/Domain">
+              <input type = "text" id  = "mssql-port" placeholder = "Port Number" title = "Port Number">
+              <input type = "text" id = "mssql-file" placeholder = "Driver Data File" title = "Driver Data File">
+            </div>
+            <button class = "button" onclick = "mine(this)" title = "mssql" id = "mssql-button"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i></button>
+          </fieldset>
+          <br>
+          <fieldset class = "driver-from" id = "oracle" align = "center">
+          <legend><img class = "img-icon" src = "../Icons/oracle-db-logo.png" title = "Oracle Database"></legend>
+          <input type = "text" placeholder = "Username" id = "username-oracle" title = "Username">
+          <input type = "password" placeholder = "Password" id = "password-oracle" title = "Password">
+          <label><input type= "checkbox" title = "oracle" id = "enabled-oracle" onclick = "enable(this)">Enabled</label>
+          <label><input type = "checkbox"  title = "oracle" onclick = "show(this)">Show Password</label>
+          <div class = "collapse" style = "height : 0px; overflow : hidden;">
+            <input type = "text" id = "oracle-driver" placeholder = "Driver" title = "Driver" readonly>
+            <input type = "text" id = "oracle-url" placeholder = "Address/Domain" title = "Address/Domain">
+            <input type = "text" id  = "oracle-port" placeholder = "Port Number" title = "Port Number">
+            <input type = "text" id = "oracle-file" placeholder = "Driver Data File" title = "Driver Data File">
+          </div>
+          <button class = "button" onclick = "mine(this)" title = "oracle" id = "oracle-button"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i></button>
+        </fieldset>
+        <br>
+        <fieldset class = "driver-from" id = "oracle" align = "center">
+          <legend><h3 style = "color : #666">Email Id</h3></legend>
+          <input type = "text" placeholder = "Email" id = "email">
+        </fieldset>
+        <br>
+        <button id = "save" onclick = "save()" class = "button" style = "width : 50%; border-radius : 12px;">Save</button>
+        <br>
+        <div class = "scroll-down scroll modal-box" align = "center" id = "dialog" style = 'display : none;'>
+          <div class = "modal-content">
+            <p id = "message">A null value cannot be accepted for this column</p>
+            <input type = "button" onclick = "this.parentElement.parentElement.style.display = 'none';" class = "mod-but" value = "OK">
+          </div>
+        </div>
+        <div class = "scroll-down scroll modal-box" align = "center" id = "logout" style = 'display : none;'>
+          <div class = "modal-content">
+            <p id = "message">Do you want to save the information before you logout?</p>
+            <input type = "button" class = "mod-but" value = "Save" onclick = "logoutSave(this)">
+            <input type = "button" onclick = "this.parentElement.parentElement.style.display = 'none';" style = "margin-left : 35px;" class = "mod-but" value = "Cancel">
+            <input type = "button" class = "mod-but" style = "margin-left : 35px;" value = "Logout" onclick= "logout()">
+          </div>
+        </div>
+      </div>
+    </body>
+</html>

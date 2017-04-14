@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>
+      SQLNavigator Registration
+    </title>
+    <style>
+      @import url("../Style.css");
+	   h2 {
+                -webkit-font-smoothing: antialiased;
+                -webkit-text-stroke: 1.5px;
+        }
+    </style>
+    <link rel = "Stylesheet" href = "../fonts.css">
+    <script src = "../Resource/registration.js"></script>
+  </head>
+  <body>
+    <div align = "center" class = "fade-in fade">
+      <table>
+        <tr>
+          <td><img src="../../Icons/Icon.png" heigh = "50" width = "50"></td>
+          <td style = "padding-top : 10%; padding-left : 20px;"><h2>SQLNavigator</h2></td>
+        </tr>
+      </table>
+      <div class = "reg-body">
+        <br>
+        <input type = "text" id = "username" placeholder = "Username">
+        <input type = "password" id = "password" placeholder = "Password">
+        <input type = "password" id = "confPassword" placeholder = "Confirm Password">
+        <button onclick = "register()">Create Account</button>
+        <br>
+      </div>
+      <a href = "../login.html" style = "color : white;">Back to login</a>
+    </div>
+    <div class = "scroll-down scroll modal-box" align = "center" id = "dialog" style = 'display : none;'>
+      <div class = "modal-content">
+        <p id = "message">A null value cannot be accepted for this column</p>
+        <input type = "button" onclick = "this.parentElement.parentElement.style.display = 'none';" class = "mod-but" value = "OK">
+      </div>
+    </div>
+  </body>
+</html>

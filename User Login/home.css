@@ -1,0 +1,222 @@
+h1,h2,h3 {
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke: 1.5px;
+    color : inherit;
+    margin-left : inherit;;
+    font-family: inherit;
+}
+.nav {
+    position: fixed;
+    top : 0;
+    left : 0;
+    width : 100%;
+    background-color: crimson;
+    color: #BBB;
+    font-family: 'Lobster';
+    z-index: 1;
+}
+body {
+    padding: 0;
+    margin: 0;
+}
+.logout-button {
+    color :darkcyan;
+}
+.logo {
+   font-family : 'Lobster';
+   -webkit-transition-duration : 0.3s;
+   color : #fff;
+   font-weight: bold;
+}
+
+.logo:hover {
+   text-shadow: 2px 2px rgba(0,0,0,0.6);
+}
+.logout {
+    vertical-align: super;
+    color : #bbb;
+    -webkit-transition-duration: 0.3s;
+    cursor: pointer;
+}
+.logout:hover {
+    color : #555;
+    background-color: rgb(238,238,238);
+    box-shadow : 1px 1px 4px 4px rgba(0,0,0,0.12);
+}
+.page-body {
+  margin-top: 62px;
+  margin-left: 30px;
+  margin-right: 30px;
+  background-color: rgb(238,238,238);
+  font-family: 'Source Sans Pro';
+  box-shadow : 1px 1px 4px 4px rgba(0,0,0,0.12);
+}
+.driver-from {
+  margin-left: 25%;
+  margin-right: 25%;
+  background-color: white;
+  border-radius: 9px;
+  border : 7px solid #555;
+  text-align: left;
+}
+
+input[type="text"], input[type="password"] {
+  display: block;
+  margin : 10px 35px 10px 35px;
+  padding: 5px;
+  font-size: 16px;
+  font-family: 'Dosis';
+  letter-spacing: 3px;
+  width : 90%;
+  border : none;
+  outline : none;
+  border-bottom: 1px solid crimson;
+}
+
+input[type="checkbox"] {
+    margin-left : 35px;
+    color: crimson;
+    padding: 1px;
+}
+
+label {
+  color : black;
+  font-family: 'Source Sans Pro';
+}
+
+.button {
+  display: block;
+  width : 90%;
+  margin : 10px 35px 10px 35px;
+  padding : 8px 16px;
+  border : none;
+  background-color : rgb(255,50,50);
+  color : #fffacd;
+  font-size : 18px;
+  font-family : 'Merriweather';
+  -webkit-transition-duration: 0.4s;
+  outline: none;
+}
+
+.disable-button {
+  display: block;
+  width : 90%;
+  margin : 10px 35px 10px 35px;
+  padding : 8px 16px;
+  border : none;
+  background-color : rgb(210,210,210);
+  color : #fffacd;
+  font-size : 18px;
+  font-family : 'Merriweather';
+  -webkit-transition-duration: 0.4s;
+  outline: none;
+}
+
+.button:hover {
+  background-color : crimson;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button:active {
+  background-color : crimson;
+  box-shadow: 0 7px 11px 0 rgba(0,0,0,0.24), 0 11px 40px 0 rgba(0,0,0,0.19);
+  -webkit-transform: translateY(8px);
+}
+
+.img-icon {
+  height : 100px;
+  width : 100px;
+  border-radius: 7px;
+  border : 3px solid #555;
+  padding :5px;
+}
+
+@-webkit-keyframes open {
+  from {height : 0px; opacity : 0;} to {height : 170px; opacity:  1;}
+}
+@-webkit-keyframes close {
+  from {height : 170px; opacity:  1;} to {height : 0px; opacity : 0;}
+}
+.open {
+  -webkit-animation: open ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.5s;
+}
+.close {
+  -webkit-animation: close ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.5s;
+}
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fade-in {
+  opacity:0;
+  -webkit-animation:fadeIn ease-in 1;
+  -webkit-animation-fill-mode:forwards;
+   -webkit-animation-duration:1s;
+}
+
+.fade-in.fade {
+  -webkit-animation-delay: 0.4s;
+}
+
+.modal-content {
+  background-color: rgba(0,0,0,0.8);
+  color : white;
+  padding: 2%;
+  border-radius: 8px;
+  font-family: "Bookman Old Style";
+}
+
+.modal-content p {
+  color : white;
+}
+
+.modal-box {
+    position: fixed;
+    top : 0;
+    left : 0;
+    margin-right: 15%;
+    margin-left: 15%;
+    border-radius: 8px;
+    background-color: rgba(0,0,0,0.3);
+    width : 70%;
+    padding : 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+@-webkit-keyframes scrollDown {from {margin-top: 0%; opacity: 0} to {margin-top: 18%; opacity: 1}}
+
+.scroll-down {
+  margin-top: 0%;
+  opacity: 0;
+  -webkit-animation : scrollDown ease-in 1;
+  -webkit-animation-fill-mode:forwards;
+  -webkit-animation-duration : 0.3s;
+}
+
+.scroll-down.scroll {
+  -webkit-animation-delay: 0.2s;
+}
+
+.mod-but {
+    padding : 8px 16px;
+    color : white;
+    background: -webkit-linear-gradient(red,white 10%,red 80%);
+    border-radius: 7px;
+    border : none;
+    outline none;
+    margin-top : 3px;
+	-webkit-transition-duration : 0.6s;
+}
+
+.mod-but:hover {
+	background: -webkit-linear-gradient(rgba(255,0,0,0.3),red,white,red);
+}
+
+.mod-but:active {
+  -webkit-transform : translateY(3px);
+  background: -webkit-linear-gradient(rgba(255,0,0,0.3),red,white,red);
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
