@@ -1,0 +1,70 @@
+button {
+    padding : 8px 16px;
+    color : white;
+    background: -webkit-linear-gradient(red,white 10%,red 80%);
+    border-radius: 7px;
+    border : none;
+    outline none;
+    margin-top : 3px;
+}
+
+button:active {
+  background: -webkit-linear-gradient(rgba(255,0,0,0.3),red,white,red);
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.modal-content {
+  background-color: rgba(0,0,0,0.8);
+  color : white;
+  padding: 2%;
+  border: 1px solid #888;
+  border-radius: 8px;
+  font-family: "Bookman Old Style";
+}
+
+#dialog {
+    position: fixed;
+    top : 0;
+    left : 0;
+    margin-right: 15%;
+    margin-left: 15%;
+    border-radius: 8px;
+    background-color: rgba(0,0,0,0.3);
+    width : 70%;
+    padding : 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.status-bar {
+  position: fixed;
+  bottom: 0;
+  left 0;
+  width : 100%;
+  background-color: lightgreen;
+  color : green;
+  padding: 5px;
+  font-size : 14px;
+  font-family: "Courier";
+  border-top : 2px solid green;
+}
+.status-bar span {
+  display: block;
+}
+body {
+  padding: 0;
+  margin : 0;
+}
+
+@-webkit-keyframes scrollDown {from {margin-top: 0%; opacity: 0} to {margin-top: 18%; opacity: 1}}
+
+.scroll-down {
+  margin-top: 0%;
+  opacity: 0;
+  -webkit-animation : scrollDown ease-in 1;
+  -webkit-animation-fill-mode:forwards;
+  -webkit-animation-duration : 0.3s;
+}
+
+.scroll-down.scroll {
+  -webkit-animation-delay: 0.2s;
+}
