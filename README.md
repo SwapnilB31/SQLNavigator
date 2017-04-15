@@ -1,5 +1,4 @@
 <h2>SQLNavigator</h2>
-<br/><br/>
 It is a Database Administration Utility written in Java, and it supports three popular Database Applications, namely - MySQL, Microsoft SQL Server Express and Oracle XE.
 <br/><br/>
 It is serves as a GUI Front-end for the DBA, and essentially lets the user perform various operations on the Database
