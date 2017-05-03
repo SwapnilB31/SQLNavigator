@@ -1,0 +1,69 @@
+.dia-button {
+    padding : 8px 16px;
+    color : white;
+    background: -webkit-linear-gradient(#ec5151,#ec8a25);
+    border-radius: 7px;
+    border : none;
+    outline : none;
+    font-weight : bold;
+    margin-top : 3px;
+}
+
+.dia-button:hover {
+  background: -webkit-linear-gradient(#ec8a25,#ec5151);
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.modal-content {
+  background-color : rgb(235,235,235);
+  color : white;
+  padding: 12px;
+  border: 1px solid #888;
+  border-radius: 8px;
+  /**overflow-y : scroll;**/
+  font-family: "Bookman Old Style";
+}
+
+#dialog, #dialog1 {
+    position: fixed;
+    top : 0;
+    left : 0;
+    margin-right: 15%;
+    margin-left: 15%;
+    border-radius: 8px;
+    float : none;
+    background-color: #0beac1;
+    width : 70%;
+    padding : 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#message, #message1 {
+	overflow-y : auto;
+	width : 100%;
+	border : none;
+  font-family: "Bookman Old Style";
+	font-size : 15px;
+	color : #333;
+	resize : none;
+	outline : none;
+}
+
+body {
+  padding: 0;
+  margin : 0;
+}
+
+@-webkit-keyframes scrollDown {from {margin-top: 0%; opacity: 0} to {margin-top: 18%; opacity: 1}}
+
+.scroll-down {
+  margin-top: 0%;
+  opacity: 0;
+  -webkit-animation : scrollDown ease-in 1;
+  -webkit-animation-fill-mode:forwards;
+  -webkit-animation-duration : 0.3s;
+}
+
+.scroll-down.scroll {
+  -webkit-animation-delay: 0.2s;
+}

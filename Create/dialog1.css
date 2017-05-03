@@ -1,0 +1,71 @@
+.mod-button {
+    padding : 8px 16px;
+    color : white;
+    background: -webkit-linear-gradient(red,white 10%,red 80%);
+    border-radius: 7px;
+    border : none;
+    outline none;
+    margin-top : 3px;
+}
+
+.mod-button:active {
+  background: -webkit-linear-gradient(rgba(255,0,0,0.3),red,white,red);
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.modal-content1 {
+  background-color: rgba(0,0,0,0.8);
+  color : white;
+  padding: 2%;
+  border: 1px solid #888;
+  border-radius: 8px;
+  /**overflow-y : scroll;**/
+  font-family: "Bookman Old Style";
+}
+
+#dialog2 {
+    position: fixed;
+    top : 0;
+    left : 0;
+    margin-right: 1%;
+    margin-left: 5%;
+    border-radius: 8px;
+	/*max-height : 400px;
+	min-width : 700px;*/
+    background-color: rgba(0,0,0,0.3);
+    width : 90%;
+    padding : 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#message2 {
+	background-color: rgba(0,0,0,0.0);
+	overflow-y : auto;
+	width : 100%;
+	height : 150px;
+	border : none;
+    font-family: "Bookman Old Style";
+	font-size : 15px;
+	color : white;
+	resize : none;
+	outline : none;
+}
+
+body {
+  padding: 0;
+  margin : 0;
+}
+
+@-webkit-keyframes scrollDown1 {from {margin-top: 0%; opacity: 0} to {margin-top: 13%; opacity: 1}}
+
+.scroll-down1 {
+  margin-top: 0%;
+  opacity: 0;
+  -webkit-animation : scrollDown1 ease-in 1;
+  -webkit-animation-fill-mode:forwards;
+  -webkit-animation-duration : 0.3s;
+}
+
+.scroll-down1.scroll1 {
+  -webkit-animation-delay: 0.2s;
+}

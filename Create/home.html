@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <style>
+            .icon {
+                width : 120px;
+                height : 120px;
+                border : 3px solid darkslategray;
+                box-shadow: 1px 1px 4px 4px rgba(0,0,0,0.4);
+                background : -webkit-linear-gradient(#fff,#ccc);
+                color: darkslategrey;
+                font-size: 20px;
+                border-radius: 50%;
+                vertical-align: baseline;
+                /*display: inline-flex; */
+                display: -webkit-box !important;
+                /*display: -ms-flexbox;*/
+                -webkit-box-align: center !important;
+                /*-ms-flex-align: center;*/
+                /*align-items: center;*/
+                /*-webkit-transition-duration: 0.05s;*/
+                margin-left : 30px;
+                margin-bottom:  10px;
+            }
+            .icon:hover {
+                width : 125px;
+                height : 125px;
+                line-height: 110%;
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+            }
+            body {
+                margin : 7% 15% 3% 15%;
+                background: -webkit-linear-gradient(#aaa,#fff);
+                /*overflow : hidden;*/
+            }
+        </style>
+        <script>
+            function run() {
+                return false;
+            }
+        </script>
+        <link rel="Stylesheet" href="../Stylesheet/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="Stylesheet" href="../User Login/fonts.css">
+    </head>
+    <body>
+        <div align = "center">
+            <h2 style = "color : darkslategrey; font-family : 'Lobster'; font-size : 40px; -webkit-text-stroke : 0.5px">The Create Utility</h2>
+            <p style = "color : darkslategrey; font-family : 'Baskerville Old Face','Sans-serif'; text-justify : inter-word; text-align : left; -webkit-text-stroke : 0.5px"><b>This tool assists the user in generating DDL (Data Definition Language) statements for creating Tables and Databases as per the <br> 
+            user's specifications. Additionally, it offers some DML assistance, as it lets the user alter the table structure in the form of, adding or<br> 
+            removing columns, adding constraints to the table (Primary Key, Candidate Key), by the means of applying the constarint on an existing attribute. It also lets the user drop tables and delete databases.</b></p>
+            <div><div class = "icon" onclick = "window.open('db.html');"><span class = "fa fa-4x fa-database"></span></div>&nbsp&nbsp&nbsp&nbsp&nbsp<span style = "font-family : 'Elephant', Sans-serif; font-size : 20px; margin-left : 10px; margin-bottom : 20px; color: darkslategrey;">Database</span></div><br>
+            <div onclick = "window.open('table.html');"><div class = "icon"><span class = "fa fa-4x fa-table"></span></div>&nbsp&nbsp&nbsp&nbsp&nbsp<span style = "font-family : 'Elephant', Sans-serif; font-size : 20px; margin-left : 10px; margin-bottom : 20px; color: darkslategrey;">Table</span></div>
+        </div>
+    <body>
+</html>

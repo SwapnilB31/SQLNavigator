@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <link rel="Stylesheet" href="../Stylesheet/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="Stylesheet" href="../User Login/fonts.css">
+        <link rel="stylesheet" href="highlight/styles/atom-one-light.css">
+        <link rel="Stylesheet" href="dialog.css">
+        <link rel="Stylesheet" href="dialog1.css">
+        <link rel="Stylesheet" href="table.css">
+        <script src = "table.js"></script>
+        <script src="highlight/highlight.pack.js"></script>
+        <!--<script type='text/javascript' src='http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js'></script>-->
+    </head>
+    <body>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <div id = "side-bar">
+            <h2 style = "font-family : Lobster; -webkit-text-stroke : 1px; margin-top : 5px !important; margin-bottom : 5px !important; color : darkslategrey;">Database Tree</h2>
+        </div>
+        <div id = "nav">
+            <div align =" left" style = "display : inline-block;">
+                <table style = "display : inline" class = "icon">
+                    <tr>
+                        <td style = "padding-top: 6px">&nbsp&nbsp<img src= "../Icons/Icon-neg.png" height="39" width="50"></td>
+                        <td>&nbsp&nbsp<h1 style="display : inline"><b>SQLNavigator</b></h1></td>
+                    </tr>
+                </table>
+            </div>
+            <div style = "float : right; padding-right : 10px; font-size : 11px !important;">
+                <div class = "logo opt" onclick = "window.open('home.html');"><i class="fa fa-home" aria-hidden="true"></i></i>&nbsp Home</div>
+                <div class = "logo opt" onclick = 'createNewTableUI()'><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp New Table</div>
+			</div>
+        </div>
+        <div class = "display" align = "center">
+            <div class ="db-in-use">The database 'forum is in use'</div>
+            <div id = "body">
+
+            </div>
+        </div>
+        <div id = "bottom-bar" style = "display : none;">
+            <input type = "button" onclick = "submitTypeChangeInfo()" style = "margin-right : 15px;" class = "dia-button" value = "Submit">
+            <input type = "button" onclick = "cancelTypeChange()" class = "dia-button" value = "Cancel">
+        </div>
+        <div class = "scroll-down scroll modal-box" align = "center" id = "dialog" style = 'display : none;'>
+          <div class = "modal-content">
+            <p id = "message"></p>
+            <input type = "button" onclick = "this.parentElement.parentElement.style.display = 'none';" class = "dia-button" value = "OK">
+          </div>
+        </div>
+        <div class = "scroll-down scroll modal-box" align = "center" id = "dialog1" style = 'display : none;'>
+          <div class = "modal-content">
+            <p id = "message1">The following query will delete the selected row. Do you want to execute it</p>
+            <pre><code class = "lang-sql" id = "query" data-queryType = ""></code></pre>
+            <input type = "button" onclick = "drop()" style = "margin-right : 15px;" class = "dia-button" value = "Execute">
+            <input type = "button" onclick = "this.parentElement.parentElement.style.display = 'none'; enableAll(); var intent = document.getElementById('query').getAttribute('data-queryType');if(intent == 'alter field' || intent == 'alter length' || intent == 'alter type'){ makeAllUneditable();} else{makeAllEditable();} if(intent == 'alter null' || intent == 'drop key' || intent == 'add key' || intent == 'alter type') {var loc = document.getElementById('body').getAttribute('data-tab'); var x = Number(loc.split(',')[0]); var y = Number(loc.split(',')[1]); var tab = document.getElementsByTagName('details')[x].getElementsByTagName('span')[y]; createDesc(tab); changecount();}" class = "dia-button" value = "Cancel">
+          </div>
+        </div>
+        <div align = "center" id = "dialog2" class = "scroll-down1 scroll1" style = 'display : none;'>
+			<div class = "modal-content1">
+				<div style = "text-align : left !important">Some fields are incorrectly filled. Details follow : </div>
+				<textarea id = "message2" style = "text-align : left !important" readonly>A null value cannot be accepted for this column</textarea>
+				<button class="mod-button" onclick = "this.parentElement.parentElement.style.display = 'none';">OK</button>
+			</div>
+		</div>
+    </body>
+</html> 
