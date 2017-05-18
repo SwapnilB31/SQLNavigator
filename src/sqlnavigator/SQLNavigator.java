@@ -63,6 +63,14 @@ class Table {
         Key = K;
         Extra = E;
     }
+    
+    public Table(Table t) {
+        Field = t.Field;
+        Type = t.Type;
+        Null = t.Null;
+        Key = t.Key;
+        Extra = t.Extra;
+    }
 }
 
 class SQLUser implements Serializable {
@@ -385,11 +393,12 @@ class SQLIntro extends JFrame {
                     Database.setEnabled(false);
                     Database.removeAllItems();
                     Database.addItem(select);
+                    Create.setEnabled(false);
                     Update.setEnabled(false);
                     View.setEnabled(false);
                     Edit.setEnabled(false);
                     Login.setText("Login");
-                    this.setTitle("SQLNavigator - Home");
+                    this.setTitle("SQL Navigator - Home");
                 }
             } else {
                 try {
@@ -410,12 +419,13 @@ class SQLIntro extends JFrame {
                         } else {
                             Database.removeItemAt(0);
                             Database.setEnabled(true);
+                            Create.setEnabled(true);
                             Update.setEnabled(true);
                             View.setEnabled(true);
                         }
                         Edit.setEnabled(true);
                         Login.setText("Logout");
-                        this.setTitle("SQLNavigator - " + user.username);
+                        this.setTitle("SQL Navigator - " + user.username);
                     }
                 } catch (IOException e) {
                     error(e, this);
@@ -441,6 +451,11 @@ class SQLIntro extends JFrame {
                 driver = Database.getItemAt(Database.getSelectedIndex());
 
         });*/
+        
+        Create.addActionListener((ActionEvent ae) -> {
+            new SQL_Create(currUser).setVisible(true);
+        });
+        
         View.addActionListener((ActionEvent Event) -> {
             try {
                 view = new SQLViewer(currUser, "");
@@ -513,7 +528,7 @@ class SQLIntro extends JFrame {
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent ev) {
                 System.exit(0);
-                save_DriverData();
+                //save_DriverData();
             }
         });
         setSize(1220, 350);
@@ -523,7 +538,7 @@ class SQLIntro extends JFrame {
         setResizable(false);
     }
 
-    public Vector<DriverData> fetch_DriverData() throws IOException, ClassNotFoundException {
+    /*public Vector<DriverData> fetch_DriverData() throws IOException, ClassNotFoundException {
         FileInputStream fs = new FileInputStream(path + "SQLNavigator\\DriverData.ser");
         ObjectInputStream os = new ObjectInputStream(fs);
         Vector<sqlnavigator.DriverData> arr = new Vector<>();
@@ -547,7 +562,7 @@ class SQLIntro extends JFrame {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }
 
 class Login extends JDialog {
@@ -1219,8 +1234,6 @@ class SQLViewer extends JFrame {
                 }
             } catch (SQLException e) {
                 error(e, this);
-                ps.flush();
-                new Error_Message(this, true, baos.toString()).setVisible(true);
             }
         }
         );
@@ -1339,6 +1352,7 @@ class SQLViewer extends JFrame {
     public Vector<String> Give_Tables(String db) throws SQLException {
         Vector<String> arr = new Vector<>();
         Statement st = con.createStatement();
+        System.out.println("use `" + db + "`;");
         st.executeUpdate("use " + db + ";");
         ResultSet res = st.executeQuery("show tables;");
         if (res.next() == false) {
@@ -1376,7 +1390,7 @@ class SQLViewer extends JFrame {
 
     public ArrayList<Table> desc_table(String table) throws SQLException, Exception {
         Statement st = con.createStatement();
-        ResultSet res = st.executeQuery("desc " + table + ";");
+        ResultSet res = st.executeQuery("desc `" + table + "`;");
         res.getMetaData();
         /*System.out.println("Is res false = "+*/
         res.next()/*)*/;
@@ -1439,7 +1453,7 @@ class SQLViewer extends JFrame {
         FileWriter file = new FileWriter(new File(path + "SQLNavigator\\temp\\temp.html"));
         BufferedWriter s = new BufferedWriter(file);
         Statement st = con.createStatement();
-        ResultSet res = st.executeQuery("Select * from " + tab + ";");
+        ResultSet res = st.executeQuery("Select * from `" + tab + "`;");
         if (!res.next()) {
             s.append("<html></html>");
             s.close();
@@ -1495,14 +1509,14 @@ class SQLViewer extends JFrame {
         public boolean update(String table, String valueColumn, String newValue, String keyColumn, String keyValue) {
             boolean success = false;
             try {
-                System.out.println("UPDATE " + table + " SET " + valueColumn + " = \"" + newValue + "\" WHERE " + keyColumn + " = \"" + keyValue + "\";");
+                System.out.println("UPDATE `" + table + "` SET `" + valueColumn + "` = '" + newValue + "' WHERE `" + keyColumn + "` = '" + keyValue + "';");
                 Statement st = con.createStatement();
                 if (newValue == null) {
-                    st.executeUpdate("UPDATE " + table + " SET " + valueColumn + " = " + newValue + " WHERE " + keyColumn + " = \"" + keyValue + "\";");
+                    st.executeUpdate("UPDATE `" + table + "` SET `" + valueColumn + "` = '" + newValue + "' WHERE `" + keyColumn + "` = '" + keyValue + "';");
                     success = true;
                 } else {
                     //System.out.println("UPDATE " + table + " SET " + valueColumn + " = \"" + newValue + "\" WHERE " + keyColumn + " = \"" + keyValue + "\";");
-                    st.executeUpdate("UPDATE " + table + " SET " + valueColumn + " = \"" + newValue + "\" WHERE " + keyColumn + " = \"" + keyValue + "\";");
+                    st.executeUpdate("UPDATE `" + table + "` SET `" + valueColumn + "` = '" + newValue + "' WHERE `" + keyColumn + "` = '" + keyValue + "';");
                     success = true;
                 }
             } catch (SQLException e) {
@@ -1625,7 +1639,7 @@ class WebPort extends javax.swing.JDialog {
         }
         s.append("\n\t\t\t\t</tr>");
         Statement st = conn.createStatement();
-        ResultSet res = st.executeQuery("Select * from " + tab + ";");
+        ResultSet res = st.executeQuery("Select * from `" + tab + "`;");
         res.next();
 
         do {
@@ -1657,7 +1671,7 @@ class WebPort extends javax.swing.JDialog {
         }
         br.append("\n\t],\n\t\"data\" : \n\t[");
         Statement st = conn.createStatement();
-        ResultSet res = st.executeQuery("Select * from " + table + ";");
+        ResultSet res = st.executeQuery("Select * from `" + table + "`;");
         while (res.next()) {
             br.append("\n\t\t[");
             for (int i = 0; i < size; i++) {
@@ -1690,7 +1704,7 @@ class WebPort extends javax.swing.JDialog {
         }
         br.append("\n");
         Statement st = conn.createStatement();
-        ResultSet res = st.executeQuery("Select * from " + table + ";");
+        ResultSet res = st.executeQuery("Select * from `" + table + "`;");
         while (res.next()) {
             for (int i = 0; i < size; i++) {
                 if (i == size - 1) {
@@ -2138,39 +2152,69 @@ class Write_HTML extends javax.swing.JDialog {
 
 }
 
-class RowDataObject {
-
-    public String attribute;
-    public String type;
-    public String data;
-    public String Null;
-    public String key;
-    public int row;
-    public int column;
-
-    public RowDataObject(String a, String t, String d, String n, String k, int r, int c) {
-        attribute = a;
-        type = t;
-        data = d;
-        Null = n;
-        key = k;
-        row = r;
-        column = c;
+class EditTableModel extends javax.swing.table.DefaultTableModel {
+    private String internalModel[][] = new String [44][17];
+    
+    public EditTableModel() {
+        super(44,17);
     }
-
+    
+    
     @Override
-    public String toString() {
-        return data;
+    public int getRowCount() {
+        return 44;
     }
+    
+    @Override
+     public Object getValueAt(int rowIndex, int columnIndex) {
+         //System.out.println("Get value at "+rowIndex+","+columnIndex+" = "+internalModel[rowIndex][columnIndex]);
+        return internalModel[rowIndex][columnIndex];
+    }
+     
+    public void setModel(int colSize) {
+        internalModel = new String[44][colSize];
+        System.out.println("In setModel");
+        System.out.println(internalModel.length+","+internalModel[0].length);
+        for(int i = 0; i < internalModel.length; i++) {
+            for(int j = 0; j < internalModel[i].length; j++) {
+                internalModel[i][j] = new String("");
+            }
+        }
+    }
+    
+    @Override
+    public void setValueAt(Object o, int rowIndex, int columnIndex) {
+        internalModel[rowIndex][columnIndex] = o.toString();
+        fireTableCellUpdated(rowIndex, columnIndex);
+        //System.out.println(internalModel[rowIndex][columnIndex]);
+    }
+    
+    @Override
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return true;
+    }
+    
 }
+
 
 class SQLUpdate extends SQLViewer {
 
     JTable TableRep = new JTable(44, 17);
-    javax.swing.table.DefaultTableModel TabModel = new javax.swing.table.DefaultTableModel(44, 17);
-    Vector<Vector<RowDataObject>> data;
+    EditTableModel TabModel = new EditTableModel();
     JButton Import = new JButton("Import");
     UserAccountInformation u;
+    JMenuBar bottomMenu = new JMenuBar();
+    
+    //
+    JLabel first  = new JLabel("                                               Insert values upto row   ");
+    JTextField rowNo = new JTextField();
+    JButton checkandPush = new JButton("  Into The Table ");
+    JButton direct = new JButton("Directly");
+    JLabel second = new JLabel("                                                                        ");
+    
+    //
+    ArrayList<Table> attrib;
+    Vector<String> columnNames;
 
     public SQLUpdate(UserAccountInformation d) throws SQLException, Exception {
         super(d);
@@ -2185,8 +2229,21 @@ class SQLUpdate extends SQLViewer {
         for (String g : dbase) {
             db.addItem(g);
         }
+        
+        /**                */
+        checkandPush.setEnabled(false);
+        rowNo.setEditable(false);
+        direct.setEnabled(false);
 
         TableRep.setModel(TabModel);
+        
+        /*TableRep.getModel().addTableModelListener(new TableModelListener() {
+            public void tableChanged(TableModelEvent e) {
+                int row = e.getLastRow();
+                int column = e.getColumn();
+                System.out.println(row+","+column);
+            }
+        });*/
         //TableRep.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         TableRep.setAutoCreateRowSorter(true);
         db.addActionListener((ActionEvent AE) -> {
@@ -2223,7 +2280,7 @@ class SQLUpdate extends SQLViewer {
 
         tables.addActionListener((ActionEvent AE) -> {
             selected_table = tables.getItemAt(tables.getSelectedIndex());
-            System.out.println(selected_table);
+            //System.out.println(selected_table);
             setTitle("SQL Navigator - Update - " + Current + "/" + (selected_table == null ? "" : selected_table));
         });
         ViewMenu.add(tables);
@@ -2231,32 +2288,15 @@ class SQLUpdate extends SQLViewer {
 
             try {
                 selected_table = tables.getItemAt(tables.getSelectedIndex());
-                ArrayList<Table> attrib = desc_table(selected_table);
-                Vector<String> columnNames = columnHeader(attrib);
-                data = rowData(selected_table, attrib);
-                for (String g : columnNames) {
-                    System.out.print(g + "\t");
-                }
-                for (Vector v : data) {
-                    System.out.println();
-                    for (int i = 0; i < v.size(); i++) {
-                        System.out.print(v.elementAt(i) + "\t");
-                    }
-
-                }
-                if (data.elementAt(0).elementAt(0).data.equals("Empty Set")) {
-                    TabModel.setDataVector(data, columnNames);
-                    TabModel.removeRow(0);
-                    for (int i = 1; i <= 44; i++) {
-                        TabModel.addRow(new Vector());
-                    }
-                    TableRep.revalidate();
-                    TableRep.repaint();
-                } else {
-                    TabModel.setDataVector(data, columnNames);
-                    TableRep.revalidate();
-                    TableRep.repaint();
-                }
+                attrib = desc_table(selected_table);
+                columnNames = columnHeader(attrib);
+                TabModel.setColumnIdentifiers(columnNames);
+                TabModel.setModel(columnNames.size());
+                TableRep.repaint();
+                TabModel.fireTableDataChanged();
+                checkandPush.setEnabled(true);
+                rowNo.setEditable(true);
+                direct.setEnabled(true);
             } catch (SQLException ex) {
                 error(ex, this);
             } catch (Exception ex) {
@@ -2264,7 +2304,58 @@ class SQLUpdate extends SQLViewer {
             }
         });
         //maketable.setIcon(new ImageIcon("C:\Users\SWAPNIL\Documents\NetBeansProjects\SQLNavigatorupdate.ico"));
+        checkandPush.addActionListener((ActionEvent ae) -> {
+            if(!rowNo.getText().isEmpty()) {
+                if(typeCheck.isNum(rowNo.getText()) && Integer.parseInt(rowNo.getText()) <= 44) {
+                    TabModel.fireTableDataChanged();
+                    if(validateTable()) {
+                        try {
+                            int rows = Integer.parseInt(rowNo.getText());
+                            int cols = columnNames.size();
+                            Statement st = con.createStatement();
+                            String statement = "INSERT INTO `"+selected_table+"` values";
+                            for(int i = 0; i < rows - 1; i++) {
+                                String rowSt = "(";
+                                for(int j = 0; j < cols - 1; j++) {
+                                    rowSt += "'"+TabModel.getValueAt(i,j).toString()+"',";
+                                }
+                                rowSt += "'"+TabModel.getValueAt(i,cols - 1).toString()+"'),";
+                                statement += rowSt;
+                            }
+                            String lastRow = "(";
+                            for(int k = 0; k < cols - 1; k++) {
+                                lastRow += "'"+TabModel.getValueAt(rows - 1,k).toString()+"',";
+                            }
+                            lastRow += "'"+TabModel.getValueAt(rows - 1, cols - 1).toString() + "');";
+                            statement += lastRow;
+                            st.executeUpdate(statement);
+                            JOptionPane.showMessageDialog(this,"The rows have been succesfully inserted into the table '"+selected_table+"'","Insertion Successful",JOptionPane.INFORMATION_MESSAGE);
+                            TabModel.setModel(cols);
+                            TabModel.fireTableDataChanged();
+                        }catch(SQLException e) {
+                            error(e, this);
+                        }
+                    }
+                }
+                else {
+                    JOptionPane.showMessageDialog(this,"Enter a valid row count (less than 44)!");
+                }
+            }
+            else {
+                JOptionPane.showMessageDialog(this,"Enter a valid row count (less than 44)!");
+            }
+        });
+        
         ViewMenu.add(maketable);
+        
+        rowNo.setSize(200,50);
+        
+        bottomMenu.add(first);
+        bottomMenu.add(rowNo);
+        bottomMenu.add(checkandPush);
+        bottomMenu.add(second);
+        
+        
 
         Import.addActionListener((ActionEvent ae) -> {
             new Import(this, true, u,con).setVisible(true);
@@ -2272,6 +2363,7 @@ class SQLUpdate extends SQLViewer {
         ViewMenu.add(Import);
         this.getContentPane().setLayout(new BorderLayout());
         add(ViewMenu, BorderLayout.NORTH);
+        add(bottomMenu, BorderLayout.SOUTH);
         JScrollPane scroll = new JScrollPane(TableRep);
         scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
         scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -2296,33 +2388,51 @@ class SQLUpdate extends SQLViewer {
         setTitle("SQL Navigator - Update ");
         setSize(900, 700);
     }
-
-    public Vector<Vector<RowDataObject>> rowData(String tab, ArrayList<Table> columnData) throws SQLException, Exception {
-        Vector<Vector<RowDataObject>> dataset = new Vector<>();
-        Vector<RowDataObject> row = new Vector<>();
-        Statement st = con.createStatement();
-        ResultSet res = st.executeQuery("select * from " + tab + ";");
-        int rowNo = 1;
-        if (!res.next()) {
-            row.add(new RowDataObject("", "", "Empty Set", "", "", 0, 0));
-            dataset.add(row);
-        } else {
-            do {
-                for (int i = 1; i <= columnData.size(); i++) {
-                    String attrib = columnData.get(i - 1).Field;
-                    String type = columnData.get(i - 1).Type;
-                    String data = res.getString(i);
-                    String Nll = columnData.get(i - 1).Null;
-                    String key = columnData.get(i - 1).Key;
-                    row.add(new RowDataObject(attrib, type, data, Nll, key, rowNo, i));
+    
+    public boolean validateTable() {
+        final ArrayList <String> intTypes = new ArrayList <>(Arrays.asList("TINYINT","SMALLINT","MEDIUMINT","INT","INTEGER","BIGINT"));
+        final ArrayList <String> floatTypes = new ArrayList <>(Arrays.asList("DECIMAL","NUMERIC","FLOAT","DOUBLE"));
+        final ArrayList <String> stringTypes = new ArrayList <>(Arrays.asList("CHAR","VARCHAR","BLOB","TEXT"));
+        int rows = Integer.parseInt(rowNo.getText());
+        boolean valid = true;
+        String errStr = "";
+        for(int i = 0; i < rows; i++) {
+            for(int j = 0; j < columnNames.size(); j++) {
+                System.out.println("Inside validate "+i+","+j);
+                String value = TabModel.getValueAt(i, j).toString();
+                String type = attrib.get(j).Type;
+                String types[] = type.contains("(") ? type.split("\\(") : new String[] {type};
+                System.out.println("Type = "+types[0]);
+                if(intTypes.contains(types[0].toUpperCase())) {
+                    if(!typeCheck.checkIntType(value, type)) {
+                        valid = false;
+                        errStr += " - In the Column - "+columnNames.get(j)+" of Row - "+i+", the value '"+value+"' doesn't comply with the specified datatype - "+type+"\n";
+                    }
                 }
-                dataset.add(new Vector<RowDataObject>(row));
-                row.removeAllElements();
-                rowNo++;
-            } while (res.next());
+                else if(floatTypes.contains(types[0].toUpperCase())) {
+                    if(!typeCheck.checkFloatType(value, type)) {
+                        valid = false;
+                        errStr += " - In the Column - "+columnNames.get(j)+" of Row - "+i+", the value '"+value+"' doesn't comply with the specified datatype - "+type+"\n";
+                    }
+                }
+                else if(stringTypes.contains(types[0].toUpperCase())) {
+                    System.out.println("typeCheck.checkStringType("+value+","+ type+") = "+typeCheck.checkStringType(value, type));
+                    if(!typeCheck.checkStringType(value, type)) {
+                        valid = false;
+                        errStr += " - In the Column - "+columnNames.get(j)+" of Row - "+i+", the value '"+value+"' doesn't comply with the specified datatype - "+type+"\n";
+                    }
+                }
+            }
         }
-        return dataset;
+        if(!valid) {
+            Error_Message err = new Error_Message(this,true, errStr);
+            err.errorInputMessage();
+            err.setVisible(true);
+            //JOptionPane.showMessageDialog(this, "A few of the fields were incorrectly filled, details follow :\n"+errStr,"Invalid Entry Error",JOptionPane.ERROR_MESSAGE);
+        }
+        return valid;
     }
+
 
     public Vector<String> columnHeader(ArrayList<Table> arr) {
         Vector<String> colHeader = new Vector<>();
@@ -2330,6 +2440,123 @@ class SQLUpdate extends SQLViewer {
             colHeader.add(dud.Field);
         }
         return colHeader;
+    }
+}
+
+final class typeCheck {
+   public static boolean checkIntType(String value, String type) {
+       boolean isInt = false;
+       type = type.toLowerCase();
+       String types[] = type.split("\\(");
+       String len[] = types[1].split("\\)");
+       if(value.charAt(0) == '-') {
+           len[0] = String.valueOf(Integer.parseInt(len[0])+1);
+       }
+        if(!isNum(value))
+            return false;
+        else {
+            switch(types[0]) {
+                case "tinyint":
+                    isInt = value.length() <= Integer.parseInt(len[0]) && Integer.parseInt(value) <= 255 && Integer.parseInt(value) >= 0;
+                    break;
+                case "smallint":
+                    isInt = value.length() <= Integer.parseInt(len[0]) && Integer.parseInt(value) <= 32767 && Integer.parseInt(value) >= -32768;
+                    break;
+                case "mediumint":
+                    isInt = value.length() <= Integer.parseInt(len[0]) && Integer.parseInt(value) <= 8388607 && Integer.parseInt(value) >= -8388608;
+                    break;
+                case "int":
+                    isInt = value.length() <= Integer.parseInt(len[0]) && Long.valueOf(value) <= 2147483647 &&  Long.valueOf(value) >= -2147483647;
+                    break;
+                case "bigint":
+                    isInt = value.length() <= 19;
+                    break;
+            }
+        }
+        return isInt;
+    }
+    
+    public static boolean checkFloatType(String value, String type) {
+        boolean isFloat = false;
+        String types[] = type.split("\\(");
+        String len[] = types[1].split("\\)");
+        String lens[] = len[0].split(","); 
+        int lengths[] = new int[2];
+        lengths[0] = Integer.parseInt(lens[0]);
+        lengths[1] = Integer.parseInt(lens[1]);
+        lengths[0] = lengths[0] - lengths[1];
+        if(value.charAt(0) == '-') {
+            lengths[0]++;
+        }
+        if(value.contains(".")) {
+            String nums[] = value.split("\\.");
+            if(isNum(nums[0]) && isNum(nums[1])) {
+                switch(types[0]) {
+                    case "float":
+                    case "double":
+                    case "real":
+                        isFloat = nums[0].length() <= lengths[0] && nums[1].length() <= lengths[1];
+                        break;
+                    case "numeric":
+                    case "decimal":
+                        isFloat = nums[0].length() <= lengths[0] && nums[1].length() <= lengths[1];
+                        break;
+                }
+            }
+            else {
+                isFloat = false;
+            }
+        }
+        else if(isNum(value)) {
+            switch(types[0]) {
+                case "float":
+                case "double":
+                case "real":
+                    isFloat = value.length() <= lengths[0];
+                    break;
+                case "numeric":
+                case "decimal":
+                    isFloat = value.length() <= lengths[0];
+                    break;
+            }
+        }
+        else {
+            isFloat = false;
+        }
+        
+        return isFloat;
+    }
+    
+    public static boolean checkStringType(String value, String type) {
+        boolean isString = false;
+        if(type.contains("(")) {
+            String types[] = type.split("\\(");
+            String len[] = types[1].split("\\)");
+            int lenth = Integer.parseInt(len[0]);
+            switch(types[0]) {
+                case "char":
+                case "varchar":
+                    isString = value.length() <= lenth;
+                    break;
+            }
+        }
+        else {
+            isString = true;
+        }
+        return isString;
+    }
+    
+    private static boolean isNum (char ch) {
+        return ch >= '0' && ch <= '9';
+    }
+    
+    public static boolean isNum (String num) {
+        for(int i = 0; i < num.length(); i++) {
+            if(num.charAt(0) == '-');
+            else if(!isNum(num.charAt(i)))
+                return false;
+        }
+        return true;
     }
 }
 
@@ -2353,6 +2580,10 @@ class Error_Message extends javax.swing.JDialog {
         });
     }
 
+    public void errorInputMessage() {
+        jLabel1.setText("A few of the fields were incorrectly filled, details follow :");
+    }
+    
     private void initComponents() {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
